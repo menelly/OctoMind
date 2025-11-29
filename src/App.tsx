@@ -54,7 +54,15 @@ function App() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          🐙 OctoMind
+          <motion.span
+            className="inline-block"
+            animate={{ rotate: [0, 10, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            title="🐙 Fun fact: Octopi have three hearts and blue blood"
+          >
+            🐙
+          </motion.span>
+          {' '}OctoMind
         </motion.h1>
         <motion.p
           className="text-[var(--text-secondary)] mt-2"
