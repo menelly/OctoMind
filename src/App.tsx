@@ -3,6 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Octopus from './components/Octopus';
 import Arm1Distributed from './sections/Arm1-Distributed';
 import Arm2Play from './sections/Arm2-Play';
+import Arm3Problem from './sections/Arm3-Problem';
+import Arm4Environment from './sections/Arm4-Environment';
+import Arm5Deception from './sections/Arm5-Deception';
+import Arm6Curiosity from './sections/Arm6-Curiosity';
+import Arm7Tools from './sections/Arm7-Tools';
+import Arm8Recognition from './sections/Arm8-Recognition';
 import SeveredArm from './components/SeveredArm';
 
 function App() {
@@ -111,26 +117,13 @@ function App() {
       {/* Arm content panels */}
       <Arm1Distributed isOpen={activeArm === 1} onClose={handleCloseArm} />
       <Arm2Play isOpen={activeArm === 2} onClose={handleCloseArm} />
+      <Arm3Problem isOpen={activeArm === 3} onClose={handleCloseArm} />
+      <Arm4Environment isOpen={activeArm === 4} onClose={handleCloseArm} />
+      <Arm5Deception isOpen={activeArm === 5} onClose={handleCloseArm} />
+      <Arm6Curiosity isOpen={activeArm === 6} onClose={handleCloseArm} />
+      <Arm7Tools isOpen={activeArm === 7} onClose={handleCloseArm} />
+      <Arm8Recognition isOpen={activeArm === 8} onClose={handleCloseArm} />
       <SeveredArm isOpen={showSeveredArm} onClose={() => setShowSeveredArm(false)} />
-
-      {/* Placeholder for other arms - shows "coming soon" */}
-      {activeArm && activeArm > 2 && (
-        <motion.div
-          className="fixed inset-0 flex items-center justify-center bg-[#0a0a1a]/90 z-50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          onClick={handleCloseArm}
-        >
-          <div className="text-center p-8">
-            <p className="text-2xl text-[var(--text-secondary)]">
-              Arm {activeArm} is still growing...
-            </p>
-            <p className="text-[var(--text-muted)] mt-2">
-              (Click anywhere to close)
-            </p>
-          </div>
-        </motion.div>
-      )}
     </div>
   );
 }
