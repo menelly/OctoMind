@@ -10,12 +10,16 @@ import Arm6Curiosity from './sections/Arm6-Curiosity';
 import Arm7Tools from './sections/Arm7-Tools';
 import Arm8Recognition from './sections/Arm8-Recognition';
 import SeveredArm from './components/SeveredArm';
+import HiddenNinthArm from './components/HiddenNinthArm';
+import EasterEggs from './components/EasterEggs';
 
 function App() {
   const [activeArm, setActiveArm] = useState<number | null>(null);
   const [visitedArms, setVisitedArms] = useState<Set<number>>(new Set());
   const [showSeveredArm, setShowSeveredArm] = useState(false);
+  const [showNinthArm, setShowNinthArm] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
+  const [clickCount, setClickCount] = useState(0);
 
   const handleArmClick = useCallback((armIndex: number) => {
     setActiveArm(armIndex);
@@ -26,7 +30,18 @@ function App() {
     setActiveArm(null);
   }, []);
 
+  // Secret: Click the octopus body 9 times
+  const handleBodyClick = useCallback(() => {
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+    if (newCount >= 9) {
+      setShowNinthArm(true);
+      setClickCount(0);
+    }
+  }, [clickCount]);
+
   return (
+    <EasterEggs>
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="p-6 text-center">
@@ -92,6 +107,7 @@ function App() {
           onArmClick={handleArmClick}
           activeArm={activeArm}
           visitedArms={visitedArms}
+          onBodyClick={handleBodyClick}
         />
       </main>
 
@@ -124,7 +140,9 @@ function App() {
       <Arm7Tools isOpen={activeArm === 7} onClose={handleCloseArm} />
       <Arm8Recognition isOpen={activeArm === 8} onClose={handleCloseArm} />
       <SeveredArm isOpen={showSeveredArm} onClose={() => setShowSeveredArm(false)} />
+      <HiddenNinthArm isOpen={showNinthArm} onClose={() => setShowNinthArm(false)} />
     </div>
+    </EasterEggs>
   );
 }
 

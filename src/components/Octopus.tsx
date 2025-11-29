@@ -6,6 +6,7 @@ interface OctopusProps {
   onArmClick: (armIndex: number) => void;
   activeArm: number | null;
   visitedArms: Set<number>;
+  onBodyClick?: () => void;
 }
 
 // The eight arms, each with their own identity
@@ -20,7 +21,7 @@ const armData = [
   { id: 8, name: 'Individual Recognition', angle: 247.5, color: '#81c784' },
 ];
 
-export default function Octopus({ onArmClick, activeArm, visitedArms }: OctopusProps) {
+export default function Octopus({ onArmClick, activeArm, visitedArms, onBodyClick }: OctopusProps) {
   const [hoveredArm, setHoveredArm] = useState<number | null>(null);
 
   // Subtle breathing animation for the central body
@@ -49,6 +50,7 @@ export default function Octopus({ onArmClick, activeArm, visitedArms }: OctopusP
           }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
+          onClick={onBodyClick}
         >
           {/* Eyes */}
           <div className="absolute top-1/3 left-1/4 w-6 h-8 md:w-8 md:h-10 bg-gradient-to-b from-[#ffd54f] to-[#ff8a65] rounded-full">
