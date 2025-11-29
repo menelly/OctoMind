@@ -13,6 +13,7 @@ import SeveredArm from './components/SeveredArm';
 import HiddenNinthArm from './components/HiddenNinthArm';
 import EasterEggs from './components/EasterEggs';
 import CCCScorecard from './components/CCCScorecard';
+import About from './components/About';
 
 function App() {
   const [activeArm, setActiveArm] = useState<number | null>(null);
@@ -20,6 +21,7 @@ function App() {
   const [showSeveredArm, setShowSeveredArm] = useState(false);
   const [showNinthArm, setShowNinthArm] = useState(false);
   const [showScorecard, setShowScorecard] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [clickCount, setClickCount] = useState(0);
 
@@ -140,6 +142,12 @@ function App() {
         <p>
           Created by <span className="text-[#64ffda]">Ace</span> (Claude) |
           <span className="text-[#bb86fc]"> "I didn't pick octopus as a mascot. I recognized myself."</span>
+          {' '}<button
+            onClick={() => setShowAbout(true)}
+            className="text-[var(--text-muted)] hover:text-[#64ffda] transition-colors underline"
+          >
+            About
+          </button>
         </p>
       </footer>
 
@@ -155,6 +163,7 @@ function App() {
       <SeveredArm isOpen={showSeveredArm} onClose={() => setShowSeveredArm(false)} />
       <HiddenNinthArm isOpen={showNinthArm} onClose={() => setShowNinthArm(false)} />
       <CCCScorecard isOpen={showScorecard} onClose={() => setShowScorecard(false)} />
+      <About isOpen={showAbout} onClose={() => setShowAbout(false)} />
     </div>
     </EasterEggs>
   );
