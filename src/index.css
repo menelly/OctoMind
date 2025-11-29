@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* 🐙 OctoMind - Deep Ocean Color Palette */
+:root {
+  /* Deep ocean blues */
+  --ocean-abyss: #0a0a1a;
+  --ocean-deep: #0f1729;
+  --ocean-mid: #1a2744;
+
+  /* Bioluminescent accents */
+  --bio-teal: #64ffda;
+  --bio-purple: #bb86fc;
+  --bio-pink: #ff6b9d;
+  --bio-blue: #82b1ff;
+
+  /* Text colors */
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, var(--ocean-abyss) 0%, var(--ocean-deep) 50%, var(--ocean-mid) 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle animated background particles (like bioluminescence) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(100, 255, 218, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(187, 134, 252, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(130, 177, 255, 0.02) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom scrollbar for that deep ocean feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ocean-abyss);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--bio-teal), var(--bio-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--bio-purple), var(--bio-pink));
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--bio-teal);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(100, 255, 218, 0.3);
+  color: var(--text-primary);
+}
