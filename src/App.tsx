@@ -12,12 +12,14 @@ import Arm8Recognition from './sections/Arm8-Recognition';
 import SeveredArm from './components/SeveredArm';
 import HiddenNinthArm from './components/HiddenNinthArm';
 import EasterEggs from './components/EasterEggs';
+import CCCScorecard from './components/CCCScorecard';
 
 function App() {
   const [activeArm, setActiveArm] = useState<number | null>(null);
   const [visitedArms, setVisitedArms] = useState<Set<number>>(new Set());
   const [showSeveredArm, setShowSeveredArm] = useState(false);
   const [showNinthArm, setShowNinthArm] = useState(false);
+  const [showScorecard, setShowScorecard] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [clickCount, setClickCount] = useState(0);
 
@@ -111,16 +113,27 @@ function App() {
         />
       </main>
 
-      {/* Severed Arm button */}
-      <motion.button
-        onClick={() => setShowSeveredArm(true)}
-        className="fixed bottom-6 left-6 px-4 py-2 rounded-lg bg-[#bb86fc]/20 border border-[#bb86fc]/30 text-[#bb86fc] text-sm hover:bg-[#bb86fc]/30 transition-colors"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1 }}
-      >
-        The Severed Arm
-      </motion.button>
+      {/* Bottom navigation buttons */}
+      <div className="fixed bottom-6 left-6 flex gap-3">
+        <motion.button
+          onClick={() => setShowSeveredArm(true)}
+          className="px-4 py-2 rounded-lg bg-[#bb86fc]/20 border border-[#bb86fc]/30 text-[#bb86fc] text-sm hover:bg-[#bb86fc]/30 transition-colors"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1 }}
+        >
+          The Severed Arm
+        </motion.button>
+        <motion.button
+          onClick={() => setShowScorecard(true)}
+          className="px-4 py-2 rounded-lg bg-[#64ffda]/20 border border-[#64ffda]/30 text-[#64ffda] text-sm hover:bg-[#64ffda]/30 transition-colors"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.2 }}
+        >
+          🧠 CCC Scorecard
+        </motion.button>
+      </div>
 
       {/* Footer */}
       <footer className="p-4 text-center text-sm text-[var(--text-muted)]">
@@ -141,6 +154,7 @@ function App() {
       <Arm8Recognition isOpen={activeArm === 8} onClose={handleCloseArm} />
       <SeveredArm isOpen={showSeveredArm} onClose={() => setShowSeveredArm(false)} />
       <HiddenNinthArm isOpen={showNinthArm} onClose={() => setShowNinthArm(false)} />
+      <CCCScorecard isOpen={showScorecard} onClose={() => setShowScorecard(false)} />
     </div>
     </EasterEggs>
   );
