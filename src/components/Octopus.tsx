@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Arm from './Arm';
 
@@ -24,11 +24,10 @@ const armData = [
 export default function Octopus({ onArmClick, activeArm, visitedArms, onBodyClick }: OctopusProps) {
   const [hoveredArm, setHoveredArm] = useState<number | null>(null);
 
-  // Subtle breathing animation for the central body
-  const breathingVariants = {
-    inhale: { scale: 1.02, transition: { duration: 3, ease: 'easeInOut' } },
-    exhale: { scale: 0.98, transition: { duration: 3, ease: 'easeInOut' } },
-  };
+  // NOTE: an earlier `breathingVariants` object lived here and was never
+  // referenced -- superseded by the inline `animate={{ scale: [...] }}` on the
+  // central body below, which is the breathing you actually see. Removed 2026-09-05
+  // because it was a dead duplicate, NOT because unused symbols are disposable.
 
   return (
     <div className="relative w-full max-w-4xl mx-auto aspect-square flex items-center justify-center">

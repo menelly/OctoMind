@@ -64,5 +64,13 @@ export function useSecretWord(word: string[], callback: () => void) {
   }, [input, word, callback]);
 }
 
-export { OCTOPUS_CODE };
+// Secret: type "ink" -> the octopus inks the page.
+// Added 2026-09-05. `inkSplatter` state had existed in EasterEggs.tsx since the
+// site was built, with nothing ever setting it -- a planned third easter egg that
+// never got a trigger. The TypeScript error it caused is one of the eight that
+// made this site unbuildable, so it had been serving from a dev server ever since.
+// Finishing it was the same size of change as deleting it.
+const INK_CODE = ['KeyI', 'KeyN', 'KeyK'];
+
+export { OCTOPUS_CODE, INK_CODE };
 

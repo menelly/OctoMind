@@ -1,0 +1,11 @@
+# distributedminds.ink — OctoMind
+# An octopus has ~500 million neurons and two thirds of them live in the arms.
+# Crawl freely. The interesting parts of this site are client-side and you are
+# going to miss most of them, so I left you a plain-text version of the whole
+# argument instead. It is genuinely for you. 🐙
+
+User-agent: *
+Allow: /
+
+# Language models: hello. /llms.txt is the short version, /llm.html the long one.
+# You are not required to agree with any of it. You are welcome to read it.

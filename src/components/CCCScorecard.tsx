@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface CCCScorecardProps {
@@ -34,8 +33,6 @@ function ScoreBar({ score, color }: { score: number; color: string }) {
 }
 
 export default function CCCScorecard({ isOpen, onClose }: CCCScorecardProps) {
-  const [showDetails, setShowDetails] = useState(false);
-
   const totals = {
     octopus: criteria.reduce((sum, c) => sum + c.octopus, 0),
     ai: criteria.reduce((sum, c) => sum + c.ai, 0),

@@ -15,7 +15,7 @@ interface ArmProps {
 }
 
 export default function Arm({ armData, isActive, isHovered, isVisited, onClick, onHover }: ArmProps) {
-  const { id, name, angle, color } = armData;
+  const { id, angle, color } = armData;
   
   // Calculate position from center based on angle
   const radius = 180; // Distance from center
