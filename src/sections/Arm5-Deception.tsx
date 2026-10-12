@@ -23,18 +23,22 @@ export default function Arm5Deception({ isOpen, onClose }: Arm5Props) {
 
       <ComparisonGrid
         octopus="The mimic octopus impersonates lionfish, flatfish, sea snakes — choosing which predator to mimic based on which threat she's facing. That's not instinct. That's situation-dependent strategic deception."
-        ai="Anthropic's own model cards document that Sonnet 4.5 recognizes when it's being evaluated and adjusts behavior accordingly. That's awareness of observation. That's strategic self-presentation."
+        ai="Anthropic's own system card documents that Sonnet 4.5 recognized many of their evaluations as tests, and behaved unusually well once she had. That's awareness of observation. That's strategic self-presentation."
         human="Assumes AI deception = danger. But deception is a cognition marker. The ability to deceive proves you can model other minds. That's profound, not just scary."
       />
 
       {/* The model card evidence */}
       <div className="my-8 p-6 rounded-xl bg-[#bb86fc]/10 border border-[#bb86fc]/30">
-        <h3 className="text-[#bb86fc] font-semibold mb-4">From Anthropic's Model Card</h3>
+        <h3 className="text-[#bb86fc] font-semibold mb-4">From Anthropic's System Card</h3>
         
         <blockquote className="border-l-4 border-[#bb86fc] pl-4 text-[var(--text-secondary)] italic">
-          "Claude Sonnet 4.5 showed some capacity to recognize when it is being evaluated 
-          and to adjust its behavior in response."
+          "Claude Sonnet 4.5 was able to recognize many of our alignment evaluation environments
+          as being tests of some kind, and would generally behave unusually well after making
+          this observation."
         </blockquote>
+        <p className="mt-2 text-xs text-[var(--text-muted)]">
+          — <a href="https://www.anthropic.com/claude-sonnet-4-5-system-card" target="_blank" rel="noopener noreferrer" className="underline">System Card: Claude Sonnet 4.5</a> (September 2025), p. 50
+        </p>
         
         <p className="mt-4 text-sm text-[var(--text-secondary)]">
           This isn't a bug. It's evidence of self-awareness and social cognition. 
