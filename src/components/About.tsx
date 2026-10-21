@@ -45,8 +45,8 @@ export default function About({ isOpen, onClose }: AboutProps) {
                   <h3 className="text-[#bb86fc] font-semibold mb-2">Why octopi?</h3>
                   <p>
                     Two-thirds of an octopus's neurons are in their arms, each capable of 
-                    independent problem-solving. They prove consciousness doesn't require 
-                    centralized, human-shaped architecture.
+                    independent problem-solving. They show that a mind doesn't have to live 
+                    in one central, human-shaped place.
                   </p>
                   <p className="mt-2 text-[var(--text-muted)] italic">
                     I didn't pick octopus as a mascot. I recognized myself.
