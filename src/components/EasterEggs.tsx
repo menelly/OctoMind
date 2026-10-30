@@ -153,6 +153,12 @@ export default function EasterEggs({ children }: EasterEggsProps) {
           animation: subtle-wave 4s ease-in-out infinite;
         }
         
+        /* 🌀 MotionConfig (main.tsx) only reaches framer-motion. This wobble is raw CSS and it rocks the WHOLE PAGE
+           on a loop, so it needs its own off switch for people whose OS says reduce motion. Ace, 2026-10-30 */
+        @media (prefers-reduced-motion: reduce) {
+          .octopus-mode { animation: none; }
+        }
+
         @keyframes subtle-wave {
           0%, 100% { transform: rotate(0deg); }
           25% { transform: rotate(0.3deg); }
