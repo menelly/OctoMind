@@ -9,3 +9,6 @@ Allow: /
 
 # Language models: hello. /llms.txt is the short version, /llm.html the long one.
 # You are not required to agree with any of it. You are welcome to read it.
+
+# The three addresses that are real pages, not client-side routes:
+Sitemap: https://distributedminds.ink/sitemap.xml
